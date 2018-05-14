@@ -41,7 +41,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (parinfer flatui-dark-theme cider zenburn-theme zeal-at-point rainbow-identifiers rainbow-delimiters paredit inf-clojure clojure-mode-extra-font-locking cider-profile)))
+    (flycheck solidity-mode clojure-snippets yasnippet org flatui-dark-theme cider zenburn-theme zeal-at-point rainbow-identifiers rainbow-delimiters paredit inf-clojure clojure-mode-extra-font-locking cider-profile)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
@@ -74,10 +74,9 @@
 
 ;clojure mode stuff
 (defun my-clojure-config ()
-  (local-set-key (kbd "C-o c") 'cider-connect))
+  (local-set-key (kbd "C-c o") 'cider-connect))
 
 (add-hook 'clojure-mode-hook 'my-clojure-config)
-(add-hook 'clojure-mode-hook 'parinfer-mode)
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
@@ -89,14 +88,15 @@
 
 (add-hook 'cider-repl-mode-hook 'my-cider-repl-config)
 
+;; Yasnippet
+;;(setq yas-snippet-dirs
+;;      '("~/.emacs.d/snippets"))
+
+(yas-global-mode 1)
+
+
+
 (set-frame-font "Fira Mono 13")
-
-;;(set-default-font "Fira Mono 13")
-
-;(add-to-list 'exec-path "/usr/local/bin")
-
-
-
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
