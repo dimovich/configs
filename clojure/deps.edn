@@ -12,9 +12,9 @@
                  :sha "d492e97259c013ba401c5238842cd3445839d020"}}}
 
   :devcards
-  {:extra-paths ["resources"]
+  {:extra-paths ["resources" "devcards/resources"]
    :extra-deps {devcards {:mvn/version "0.2.4"}}
-   :main-opts ["devcards.clj"]}
+   :main-opts ["devcards/src/devcards.clj"]}
 
   
   :figwheel
@@ -34,3 +34,4 @@
            
   :rebel {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.2"}}
           :main-opts  ["-m" "rebel-readline.main"]}}}
+
