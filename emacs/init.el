@@ -6,6 +6,9 @@
 (add-to-list 'package-archives
 	     '("gnu" . "http://elpa.gnu.org/packages/"))
 
+(add-to-list 'package-archives
+             '("org" . "https://orgmode.org/elpa/") t)
+
 (package-initialize)
 
 
@@ -41,8 +44,13 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (flycheck solidity-mode clojure-snippets yasnippet org flatui-dark-theme cider zenburn-theme zeal-at-point rainbow-identifiers rainbow-delimiters paredit inf-clojure clojure-mode-extra-font-locking cider-profile)))
+    (jade-mode sass-mode cider-eval-sexp-fu markdown-mode flycheck solidity-mode clojure-snippets yasnippet org flatui-dark-theme cider zenburn-theme zeal-at-point rainbow-identifiers rainbow-delimiters paredit inf-clojure clojure-mode-extra-font-locking cider-profile)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
+ '(safe-local-variable-values
+   (quote
+    ((cider-figwheel-main-default-options . ":dev")
+     (cider-default-cljs-repl . figwheel-main)
+     (cider-clojure-cli-global-options . "-A:cider"))))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
    (quote
@@ -74,7 +82,9 @@
 
 ;clojure mode stuff
 (defun my-clojure-config ()
-  (local-set-key (kbd "C-c o") 'cider-connect))
+  (local-set-key (kbd "C-c o") 'cider-connect)
+  (setq cider-show-error-buffer 'only-in-repl))
+
 
 (add-hook 'clojure-mode-hook 'my-clojure-config)
 (add-hook 'clojure-mode-hook 'paredit-mode)
@@ -83,6 +93,7 @@
 
 (defun my-cider-repl-config ()
   (paredit-mode 1)
+  (setq cider-show-error-buffer 'only-in-repl)
   (local-set-key (kbd "C-c c") 'cider-repl-clear-buffer))
 
 
