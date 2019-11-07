@@ -31,9 +31,10 @@
  '(ansi-color-names-vector
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(cider-repl-display-help-banner nil)
+ '(clojure-indent-style :always-align)
  '(custom-safe-themes
    (quote
-    ("bfdcbf0d33f3376a956707e746d10f3ef2d8d9caa1c214361c9c08f00a1c8409" "6383f86cac149fb10fc5a2bac6e0f7985d9af413c4be356cab4bfea3c08f3b42" default)))
+    ("21fb497b14820147b2b214e640b3c5ee19fcadc15bc288e3c16c9c9575d95d66" "bdc90f305ecd4008fd39174adebfcdaf729e38aac1222a872b1f054d97adbc3d" "bfdcbf0d33f3376a956707e746d10f3ef2d8d9caa1c214361c9c08f00a1c8409" "6383f86cac149fb10fc5a2bac6e0f7985d9af413c4be356cab4bfea3c08f3b42" default)))
  '(fci-rule-color "#383838")
  '(inhibit-startup-screen t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
@@ -42,9 +43,10 @@
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
+ '(nrepl-sync-request-timeout 60)
  '(package-selected-packages
    (quote
-    (jade-mode sass-mode cider-eval-sexp-fu markdown-mode flycheck solidity-mode clojure-snippets yasnippet org flatui-dark-theme cider zenburn-theme zeal-at-point rainbow-identifiers rainbow-delimiters paredit inf-clojure clojure-mode-extra-font-locking cider-profile)))
+    (eink-theme sexy-monochrome-theme magit solarized-theme jade-mode sass-mode cider-eval-sexp-fu markdown-mode flycheck solidity-mode clojure-snippets yasnippet org flatui-dark-theme cider zenburn-theme zeal-at-point rainbow-identifiers rainbow-delimiters paredit inf-clojure clojure-mode-extra-font-locking cider-profile)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(safe-local-variable-values
    (quote
@@ -89,6 +91,7 @@
 (add-hook 'clojure-mode-hook 'my-clojure-config)
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook 'eldoc-mode)
 
 
 (defun my-cider-repl-config ()
